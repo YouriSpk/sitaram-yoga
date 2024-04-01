@@ -4,9 +4,16 @@
 
 <div id="home_page_contents">
   <% @home_page_contents.each do |home_page_content| %>
-    <%= render home_page_content %>
+    <h2><%= home_page_content.title %></h2>
+    <p><%= home_page_content.subtitle %></p>
+    <% if home_page_content.photo.attached? %>
+      <%= image_tag home_page_content.photo %>
+    <% end %>
+    <%= simple_format home_page_content.content %>
+
     <p>
       <%= link_to "Show this home page content", home_page_content %>
+      <%= link_to "Edit", edit_home_page_content_path(home_page_content) %>
     </p>
   <% end %>
 </div>

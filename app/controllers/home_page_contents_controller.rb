@@ -65,6 +65,6 @@ class HomePageContentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def home_page_content_params
-      params.require(:home_page_content).permit(:title, :content)
+      params.require(:home_page_content).permit(:title, :subtitle, :content, :photo)
     end
 end

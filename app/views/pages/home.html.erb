@@ -1,6 +1,12 @@
 <!-- app/views/pages/home.html.erb -->
 
 <h1><%= @home_page_content.title %></h1>
+<h2><%= @home_page_content.subtitle %></h2>
+
+<% if @home_page_content.photo.attached? %>
+  <%= image_tag @home_page_content.photo %>
+<% end %>
+
 <div class="content">
   <%= sanitize @home_page_content.content.to_s.html_safe %>
 </div>
