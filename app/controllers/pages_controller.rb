@@ -7,4 +7,3 @@ class PagesController < ApplicationController
     @home_page_content = HomePageContent.first_or_initialize
   end
 end
-

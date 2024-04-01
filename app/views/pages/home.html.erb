@@ -1,2 +1,6 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- app/views/pages/home.html.erb -->
+
+<h1><%= @home_page_content.title %></h1>
+<div class="content">
+  <%= sanitize @home_page_content.content.to_s.html_safe %>
+</div>
