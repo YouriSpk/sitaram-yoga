@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Home page contents</h1>
+
+<div id="home_page_contents">
+  <% @home_page_contents.each do |home_page_content| %>
+    <%= render home_page_content %>
+    <p>
+      <%= link_to "Show this home page content", home_page_content %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New home page content", new_home_page_content_path %>

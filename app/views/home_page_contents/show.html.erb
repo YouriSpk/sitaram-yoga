@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @home_page_content %>
+
+<div>
+  <%= link_to "Edit this home page content", edit_home_page_content_path(@home_page_content) %> |
+  <%= link_to "Back to home page contents", home_page_contents_path %>
+
+  <%= button_to "Destroy this home page content", @home_page_content, method: :delete %>
+</div>
