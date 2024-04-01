@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :contact_forms
+  resources :schedules
+  resources :corporate_offers
+  resources :offered_formats
+  resources :pre_natals
+  resources :yoga_styles
+  resources :teacher_cvs
   devise_for :users
   root to: "pages#home"
 

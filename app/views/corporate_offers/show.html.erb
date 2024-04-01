@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @corporate_offer %>
+
+<div>
+  <%= link_to "Edit this corporate offer", edit_corporate_offer_path(@corporate_offer) %> |
+  <%= link_to "Back to corporate offers", corporate_offers_path %>
+
+  <%= button_to "Destroy this corporate offer", @corporate_offer, method: :delete %>
+</div>

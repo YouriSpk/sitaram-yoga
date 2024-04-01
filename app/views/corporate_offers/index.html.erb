@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Corporate offers</h1>
+
+<div id="corporate_offers">
+  <% @corporate_offers.each do |corporate_offer| %>
+    <%= render corporate_offer %>
+    <p>
+      <%= link_to "Show this corporate offer", corporate_offer %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New corporate offer", new_corporate_offer_path %>

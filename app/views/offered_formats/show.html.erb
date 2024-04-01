@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @offered_format %>
+
+<div>
+  <%= link_to "Edit this offered format", edit_offered_format_path(@offered_format) %> |
+  <%= link_to "Back to offered formats", offered_formats_path %>
+
+  <%= button_to "Destroy this offered format", @offered_format, method: :delete %>
+</div>

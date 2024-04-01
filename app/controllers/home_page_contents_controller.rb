@@ -49,8 +49,8 @@ class HomePageContentsController < ApplicationController
 
   # DELETE /home_page_contents/1 or /home_page_contents/1.json
   def destroy
-    @home_page_content.destroy!
-
+    @home_page_content = HomePageContent.find(params[:id])
+    @home_page_content.destroy
     respond_to do |format|
       format.html { redirect_to home_page_contents_url, notice: "Home page content was successfully destroyed." }
       format.json { head :no_content }

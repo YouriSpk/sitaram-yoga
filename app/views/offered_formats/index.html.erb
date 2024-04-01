@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Offered formats</h1>
+
+<div id="offered_formats">
+  <% @offered_formats.each do |offered_format| %>
+    <%= render offered_format %>
+    <p>
+      <%= link_to "Show this offered format", offered_format %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New offered format", new_offered_format_path %>

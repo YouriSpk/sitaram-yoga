@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Yoga styles</h1>
+
+<div id="yoga_styles">
+  <% @yoga_styles.each do |yoga_style| %>
+    <%= render yoga_style %>
+    <p>
+      <%= link_to "Show this yoga style", yoga_style %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New yoga style", new_yoga_style_path %>

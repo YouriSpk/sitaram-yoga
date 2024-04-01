@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @yoga_style %>
+
+<div>
+  <%= link_to "Edit this yoga style", edit_yoga_style_path(@yoga_style) %> |
+  <%= link_to "Back to yoga styles", yoga_styles_path %>
+
+  <%= button_to "Destroy this yoga style", @yoga_style, method: :delete %>
+</div>

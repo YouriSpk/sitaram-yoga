@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @teacher_cv %>
+
+<div>
+  <%= link_to "Edit this teacher cv", edit_teacher_cv_path(@teacher_cv) %> |
+  <%= link_to "Back to teacher cvs", teacher_cvs_path %>
+
+  <%= button_to "Destroy this teacher cv", @teacher_cv, method: :delete %>
+</div>

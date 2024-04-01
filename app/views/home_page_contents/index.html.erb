@@ -1,21 +1,30 @@
-<p style="color: green"><%= notice %></p>
+<p class="alert alert-success"><%= notice %></p>
 
-<h1>Home page contents</h1>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Home page contents</h1>
 
-<div id="home_page_contents">
-  <% @home_page_contents.each do |home_page_content| %>
-    <h2><%= home_page_content.title %></h2>
-    <p><%= home_page_content.subtitle %></p>
-    <% if home_page_content.photo.attached? %>
-      <%= image_tag home_page_content.photo %>
+  <div class="row">
+    <% @home_page_contents.each do |home_page_content| %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <% if home_page_content.photo.attached? %>
+            <%= image_tag home_page_content.photo, class: "card-img-top" %>
+          <% end %>
+          <div class="card-body">
+            <h2 class="card-title"><%= home_page_content.title %></h2>
+            <p class="card-text"><%= home_page_content.subtitle %></p>
+            <p class="card-text"><%= simple_format home_page_content.content %></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <%= link_to "Edit", edit_home_page_content_path(home_page_content), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
-    <%= simple_format home_page_content.content %>
-
-    <p>
-      <%= link_to "Show this home page content", home_page_content %>
-      <%= link_to "Edit", edit_home_page_content_path(home_page_content) %>
-    </p>
-  <% end %>
+  </div>
 </div>
 
-<%= link_to "New home page content", new_home_page_content_path %>
+<div class="container mt-4">
+  <%= link_to "New home page content", new_home_page_content_path, class: "btn btn-success" %>
+</div>
+

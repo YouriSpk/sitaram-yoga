@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pre natals</h1>
+
+<div id="pre_natals">
+  <% @pre_natals.each do |pre_natal| %>
+    <%= render pre_natal %>
+    <p>
+      <%= link_to "Show this pre natal", pre_natal %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New pre natal", new_pre_natal_path %>

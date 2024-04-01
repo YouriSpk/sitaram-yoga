@@ -1,15 +1,30 @@
-<%= simple_form_for(@home_page_content) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <%= simple_form_for(@home_page_content, html: { class: 'form-horizontal', role: 'form' }) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :subtitle %>
-    <%= f.input :content, as: :text, input_html: { class: 'ckeditor' } %>
-    <%= f.input :photo, as: :file, label: "Photo", hint: f.object.photo.attached? ? image_tag(f.object.photo.variant(resize: "300x300")) : nil %>
-  </div>
+        <div class="form-group">
+          <%= f.input :title, class: "form-control" %>
+        </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+        <div class="form-group">
+          <%= f.input :subtitle, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.input :content, as: :text, input_html: { class: 'ckeditor form-control', rows: 10 } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.input :photo, as: :file, label: "Photo", input_html: { class: 'form-control-file' } %>
+        </div>
+
+        <div class="form-actions text-center">
+          <%= f.button :submit, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Teacher cvs</h1>
+
+<div id="teacher_cvs">
+  <% @teacher_cvs.each do |teacher_cv| %>
+    <%= render teacher_cv %>
+    <p>
+      <%= link_to "Show this teacher cv", teacher_cv %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New teacher cv", new_teacher_cv_path %>
