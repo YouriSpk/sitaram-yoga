@@ -1,4 +1,5 @@
 class PreNatalsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_pre_natal, only: %i[ show edit update destroy ]
 
   # GET /pre_natals or /pre_natals.json

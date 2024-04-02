@@ -1,5 +1,7 @@
 class YogaStylesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_yoga_style, only: %i[ show edit update destroy ]
+
 
   # GET /yoga_styles or /yoga_styles.json
   def index

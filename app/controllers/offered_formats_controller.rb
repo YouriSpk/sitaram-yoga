@@ -1,4 +1,5 @@
 class OfferedFormatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_offered_format, only: %i[ show edit update destroy ]
 
   # GET /offered_formats or /offered_formats.json
