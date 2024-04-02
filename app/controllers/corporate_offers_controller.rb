@@ -1,4 +1,5 @@
 class CorporateOffersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_corporate_offer, only: %i[ show edit update destroy ]
 
   # GET /corporate_offers or /corporate_offers.json
