@@ -1,10 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-5">
+  <% if notice %>
+    <div class="alert alert-success">
+      <%= notice %>
+    </div>
+  <% end %>
 
-<%= render @teacher_cv %>
+  <div class="card">
+    <div class="card-body">
+      <%= render @teacher_cv %>
+    </div>
+  </div>
 
-<div>
-  <%= link_to "Edit this teacher cv", edit_teacher_cv_path(@teacher_cv) %> |
-  <%= link_to "Back to teacher cvs", teacher_cvs_path %>
-
-  <%= button_to "Destroy this teacher cv", @teacher_cv, method: :delete %>
+  <div class="mt-3">
+    <%= link_to "Edit this Teacher CV", edit_teacher_cv_path(@teacher_cv), class: "btn btn-primary mr-2" %>
+    <%= link_to "Back to Teacher CVs", teacher_cvs_path, class: "btn btn-secondary mr-2" %>
+    <%= button_to "Destroy this Teacher CV", @teacher_cv, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  </div>
 </div>

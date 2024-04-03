@@ -1,14 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="text-success"><%= notice %></p>
+      <h1>Yoga styles</h1>
 
-<h1>Yoga styles</h1>
+      <div id="yoga_styles">
+        <% @yoga_styles.each do |yoga_style| %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <%= render yoga_style %>
+              <div class="text-right">
+                <%= link_to "Show this yoga style", yoga_style, class: 'btn btn-info btn-sm' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
 
-<div id="yoga_styles">
-  <% @yoga_styles.each do |yoga_style| %>
-    <%= render yoga_style %>
-    <p>
-      <%= link_to "Show this yoga style", yoga_style %>
-    </p>
-  <% end %>
+      <div class="text-center">
+        <%= link_to "New yoga style", new_yoga_style_path, class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New yoga style", new_yoga_style_path %>

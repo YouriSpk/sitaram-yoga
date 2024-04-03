@@ -1,14 +1,25 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Teacher cvs</h1>
-
-<div id="teacher_cvs">
-  <% @teacher_cvs.each do |teacher_cv| %>
-    <%= render teacher_cv %>
-    <p>
-      <%= link_to "Show this teacher cv", teacher_cv %>
-    </p>
+<div class="container mt-5">
+  <% if notice %>
+    <div class="alert alert-success">
+      <%= notice %>
+    </div>
   <% end %>
-</div>
 
-<%= link_to "New teacher cv", new_teacher_cv_path %>
+  <h1>Teacher CVs</h1>
+
+  <div class="list-group" id="teacher_cvs">
+    <% @teacher_cvs.each do |teacher_cv| %>
+      <div class="list-group-item">
+        <%= render teacher_cv %>
+
+        <% if user_signed_in? %>
+          <div id="button-trio" class="d-flex justify-content-start mt-3">
+            <%= link_to "Edit", edit_teacher_cv_path(teacher_cv), class: "btn btn-primary mr-5" %>
+            <%= link_to "Add +1", new_teacher_cv_path, class: "btn btn-success mr-5" %>
+            <%= button_to "Delete", teacher_cv, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', style: 'margin-left: auto;' %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

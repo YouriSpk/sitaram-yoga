@@ -1,14 +1,27 @@
+<div class="container mt-5">
+  <%= simple_form_for(@teacher_cv, html: { class: 'form-horizontal' }) do |f| %>
+    <% if f.error_notification %>
+      <div class="alert alert-danger">
+        <%= f.error_notification %>
+      </div>
+    <% end %>
 
-<%= simple_form_for(@teacher_cv) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-group">
+      <%= f.label :title, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :title, label: false, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content %>
-  </div>
+    <div class="form-group">
+      <%= f.label :content, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :content, label: false, as: :text, input_html: { class: 'form-control' } %>
+      </div>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

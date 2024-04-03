@@ -1,10 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="text-success"><%= notice %></p>
 
-<%= render @yoga_style %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <%= render @yoga_style %>
+          <div class="text-right">
+            <%= link_to "Edit this yoga style", edit_yoga_style_path(@yoga_style), class: 'btn btn-warning btn-sm' %> |
+            <%= link_to "Back to yoga styles", yoga_styles_path, class: 'btn btn-secondary btn-sm' %>
 
-<div>
-  <%= link_to "Edit this yoga style", edit_yoga_style_path(@yoga_style) %> |
-  <%= link_to "Back to yoga styles", yoga_styles_path %>
-
-  <%= button_to "Destroy this yoga style", @yoga_style, method: :delete %>
+            <%= button_to "Destroy this yoga style", @yoga_style, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

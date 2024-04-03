@@ -1,14 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <p class="text-success"><%= notice %></p>
 
-<h1>Corporate offers</h1>
+      <h1 class="text-center mb-4">Corporate offers</h1>
 
-<div id="corporate_offers">
-  <% @corporate_offers.each do |corporate_offer| %>
-    <%= render corporate_offer %>
-    <p>
-      <%= link_to "Show this corporate offer", corporate_offer %>
-    </p>
-  <% end %>
+      <div id="corporate_offers">
+        <% @corporate_offers.each do |corporate_offer| %>
+          <%= render corporate_offer %>
+          <p class="text-center">
+            <%= link_to "Show this corporate offer", corporate_offer, class: 'btn btn-info btn-sm' %>
+          </p>
+        <% end %>
+      </div>
+
+      <div class="text-center mt-4">
+        <%= link_to "New corporate offer", new_corporate_offer_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New corporate offer", new_corporate_offer_path %>

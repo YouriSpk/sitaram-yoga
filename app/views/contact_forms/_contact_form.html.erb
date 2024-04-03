@@ -1,17 +1,23 @@
-<div id="<%= dom_id contact_form %>">
-  <p>
-    <strong>Name:</strong>
-    <%= contact_form.name %>
-  </p>
+<div id="<%= dom_id contact_form %>" class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      Contact Details
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <strong>Name:</strong>
+        <%= contact_form.name %>
+      </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= contact_form.email %>
-  </p>
+      <p class="card-text">
+        <strong>Email:</strong>
+        <%= contact_form.email %>
+      </p>
 
-  <p>
-    <strong>Message:</strong>
-    <%= contact_form.message %>
-  </p>
-
+      <p class="card-text">
+        <strong>Message:</strong>
+        <%= contact_form.message %>
+      </p>
+    </div>
+  </div>
 </div>

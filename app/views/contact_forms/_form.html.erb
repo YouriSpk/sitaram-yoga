@@ -1,15 +1,29 @@
+<%= simple_form_for(@contact_form, html: { class: 'container mt-5' }) do |f| %>
+  <%= f.error_notification class: 'alert alert-danger' %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence, class: 'alert alert-danger' if f.object.errors[:base].present? %>
 
-<%= simple_form_for(@contact_form) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="card">
+    <div class="card-header">
+      Contact Form
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :message %>
-  </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+      <div class="form-group">
+        <%= f.label :message %>
+        <%= f.text_area :message, class: 'form-control', rows: 5 %>
+      </div>
+    </div>
+    <div class="card-footer">
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

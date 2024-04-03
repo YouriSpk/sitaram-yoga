@@ -1,14 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <p class="text-success"><%= notice %></p>
 
-<h1>Pre natals</h1>
+      <h1 class="text-center mb-4">Pre Natals</h1>
 
-<div id="pre_natals">
-  <% @pre_natals.each do |pre_natal| %>
-    <%= render pre_natal %>
-    <p>
-      <%= link_to "Show this pre natal", pre_natal %>
-    </p>
-  <% end %>
+      <div id="pre_natals">
+        <% @pre_natals.each do |pre_natal| %>
+          <%= render pre_natal %>
+          <p>
+            <%= link_to "Show this pre natal", pre_natal, class: 'btn btn-info' %>
+          </p>
+        <% end %>
+      </div>
+
+      <div class="text-center mt-4">
+        <%= link_to "New pre natal", new_pre_natal_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New pre natal", new_pre_natal_path %>
