@@ -26,7 +26,7 @@ class PreNatalsController < ApplicationController
 
     respond_to do |format|
       if @pre_natal.save
-        format.html { redirect_to pre_natal_url(@pre_natal), notice: "Pre natal was successfully created." }
+        format.html { redirect_to pre_natals_path, notice: "Pre natal was successfully created." }
         format.json { render :show, status: :created, location: @pre_natal }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class PreNatalsController < ApplicationController
   def update
     respond_to do |format|
       if @pre_natal.update(pre_natal_params)
-        format.html { redirect_to pre_natal_url(@pre_natal), notice: "Pre natal was successfully updated." }
+        format.html { redirect_to pre_natals_path, notice: "Pre natal was successfully updated." }
         format.json { render :show, status: :ok, location: @pre_natal }
       else
         format.html { render :edit, status: :unprocessable_entity }

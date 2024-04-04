@@ -1,22 +1,25 @@
 <div class="container mt-5">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <p class="text-success"><%= notice %></p>
-
-      <h1 class="text-center mb-4">Pre Natals</h1>
-
-      <div id="pre_natals">
-        <% @pre_natals.each do |pre_natal| %>
-          <%= render pre_natal %>
-          <p>
-            <%= link_to "Show this pre natal", pre_natal, class: 'btn btn-info' %>
-          </p>
-        <% end %>
-      </div>
-
-      <div class="text-center mt-4">
-        <%= link_to "New pre natal", new_pre_natal_path, class: 'btn btn-primary' %>
-      </div>
+  <% if notice %>
+    <div class="alert alert-success">
+      <%= notice %>
     </div>
+  <% end %>
+
+  <h1>Pre Natals</h1>
+
+  <div class="list-group" id="pre_natals">
+    <% @pre_natals.each do |pre_natal| %>
+      <div class="list-group-item">
+        <%= render pre_natal %>
+      </div>
+    <% end %>
   </div>
+
+  <% if user_signed_in? %>
+    <div id="button-trio" class="d-flex justify-content-start mt-3 container">
+      <%= link_to "Edit", edit_pre_natal_path(@pre_natals.first), class: "btn btn-primary mr-5" if @pre_natals.any? %>
+      <%= link_to "Add +1", new_pre_natal_path, class: "btn btn-success mr-5" if @pre_natals.empty? %>
+      <%= button_to "Delete", @pre_natals.first, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', style: 'margin-left: auto;' if @pre_natals.any? %>
+    </div>
+  <% end %>
 </div>

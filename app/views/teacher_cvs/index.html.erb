@@ -11,15 +11,16 @@
     <% @teacher_cvs.each do |teacher_cv| %>
       <div class="list-group-item">
         <%= render teacher_cv %>
-
-        <% if user_signed_in? %>
-          <div id="button-trio" class="d-flex justify-content-start mt-3">
-            <%= link_to "Edit", edit_teacher_cv_path(teacher_cv), class: "btn btn-primary mr-5" %>
-            <%= link_to "Add +1", new_teacher_cv_path, class: "btn btn-success mr-5" %>
-            <%= button_to "Delete", teacher_cv, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', style: 'margin-left: auto;' %>
-          </div>
-        <% end %>
       </div>
     <% end %>
   </div>
 </div>
+
+<% if user_signed_in? %>
+  <div id="button-trio" class="d-flex justify-content-start mt-3 container">
+    <%= link_to "Edit", edit_teacher_cv_path(@teacher_cvs.first), class: "btn btn-primary mr-5" if @teacher_cvs.any? %>
+    <%= link_to "Add +1", new_teacher_cv_path, class: "btn btn-success mr-5" if @teacher_cvs.empty? %>
+    <%= button_to "Delete", @teacher_cvs.first, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', style: 'margin-left: auto;' if @teacher_cvs.any? %>
+  </div>
+<% end %>
+

@@ -6,14 +6,16 @@
       <div class="card mb-3">
         <div class="card-body">
           <%= render @yoga_style %>
-          <div class="text-right">
-            <%= link_to "Edit this yoga style", edit_yoga_style_path(@yoga_style), class: 'btn btn-warning btn-sm' %> |
-            <%= link_to "Back to yoga styles", yoga_styles_path, class: 'btn btn-secondary btn-sm' %>
-
-            <%= button_to "Destroy this yoga style", @yoga_style, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-          </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div id="button-trio" class="d-flex justify-content-start mt-3 container">
+    <% if user_signed_in? %>
+      <%= link_to "Edit", edit_yoga_style_path(@yoga_style), class: "btn btn-primary mr-5" %>
+      <%= button_to "Delete", @yoga_style, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', style: 'margin-left: auto;' %>
+    <% end %>
+    <%= link_to "Back", yoga_styles_path, class: 'btn btn-secondary mr-5' %>
   </div>
 </div>

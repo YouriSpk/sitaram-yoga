@@ -26,7 +26,7 @@ class TeacherCvsController < ApplicationController
 
     respond_to do |format|
       if @teacher_cv.save
-        format.html { redirect_to teacher_cv_url(@teacher_cv), notice: "Teacher cv was successfully created." }
+        format.html { redirect_to teacher_cvs_path, notice: "Teacher cv was successfully created." }
         format.json { render :show, status: :created, location: @teacher_cv }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class TeacherCvsController < ApplicationController
   def update
     respond_to do |format|
       if @teacher_cv.update(teacher_cv_params)
-        format.html { redirect_to teacher_cv_url(@teacher_cv), notice: "Teacher cv was successfully updated." }
+        format.html { redirect_to teacher_cvs_path, notice: "Teacher cv was successfully updated." }
         format.json { render :show, status: :ok, location: @teacher_cv }
       else
         format.html { render :edit, status: :unprocessable_entity }
